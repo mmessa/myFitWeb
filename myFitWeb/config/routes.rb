@@ -1,7 +1,23 @@
 Rails.application.routes.draw do
+  resources :exercises
+  resources :workouts
+  resources :supplements
+  resources :goals
+  resources :pictures
+  resources :profiles
   devise_for :users
 
   resources :users
+
+  resources :profiles, shallow: true do
+    resources :goals
+    resources :pictures
+    resources :supplements
+    resources :workouts, shallow: true do
+      resources :exercises
+    end
+  end
+
 
 
   root 'home#index'

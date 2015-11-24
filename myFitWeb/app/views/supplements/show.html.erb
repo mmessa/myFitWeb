@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @supplement.name %>
+</p>
+
+<p>
+  <strong>Profile:</strong>
+  <%= @supplement.profile_id %>
+</p>
+
+<%= link_to 'Edit', edit_supplement_path(@supplement) %> |
+<%= link_to 'Back', supplements_path %>

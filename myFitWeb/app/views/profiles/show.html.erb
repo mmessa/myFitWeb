@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @profile.weight %>
+</p>
+
+<p>
+  <strong>Feet:</strong>
+  <%= @profile.feet %>
+</p>
+
+<p>
+  <strong>Inches:</strong>
+  <%= @profile.inches %>
+</p>
+
+<p>
+  <strong>Body fat:</strong>
+  <%= @profile.body_fat %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @profile.age %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @profile.gender %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @profile.location %>
+</p>
+
+<p>
+  <strong>Gym:</strong>
+  <%= @profile.gym %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @profile.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>

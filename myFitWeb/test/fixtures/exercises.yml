@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  repetitions: 1
+  notes: MyText
+  workout_id: 1
+
+two:
+  name: MyString
+  repetitions: 1
+  notes: MyText
+  workout_id: 1

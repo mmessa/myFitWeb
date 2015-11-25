@@ -4,17 +4,21 @@ class UpdatesController < ApplicationController
   # GET /updates
   # GET /updates.json
   def index
+    @profile = Profile.find params[:profile_id]
     @updates = Update.all
   end
 
   # GET /updates/1
   # GET /updates/1.json
   def show
+    @update = Update.find params[:id]
+    @profile = @update.profile
   end
 
   # GET /updates/new
   def new
-    @update = Update.new
+    @profile = Profile.find params[:profile_id]
+    @update = @profile.updates.new
   end
 
   # GET /updates/1/edit
@@ -24,11 +28,12 @@ class UpdatesController < ApplicationController
   # POST /updates
   # POST /updates.json
   def create
-    @update = Update.new(update_params)
+    @profile = Profile.find params[:profile_id]
+    @update = @profile.updates.new(update_params)
 
     respond_to do |format|
       if @update.save
-        format.html { redirect_to @update, notice: 'Update was successfully created.' }
+        format.html { redirect_to profile_updates_path(@profile), notice: 'Update was successfully created.' }
         format.json { render :show, status: :created, location: @update }
       else
         format.html { render :new }
@@ -42,7 +47,7 @@ class UpdatesController < ApplicationController
   def update
     respond_to do |format|
       if @update.update(update_params)
-        format.html { redirect_to @update, notice: 'Update was successfully updated.' }
+        format.html { redirect_to profile_updates_url(@update.profile), notice: 'Update was successfully updated.' }
         format.json { render :show, status: :ok, location: @update }
       else
         format.html { render :edit }
@@ -56,7 +61,7 @@ class UpdatesController < ApplicationController
   def destroy
     @update.destroy
     respond_to do |format|
-      format.html { redirect_to updates_url, notice: 'Update was successfully destroyed.' }
+      format.html { redirect_to profile_updates_url(@update.profile), notice: 'Update was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

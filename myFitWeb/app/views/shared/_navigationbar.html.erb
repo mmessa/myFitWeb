@@ -17,6 +17,7 @@
         <li><%= nav_link_options 'Home', root_path, { :'data-no-turbolink' =>  "true", class: "nav navbar-nav"} %></li>
         <% if user_signed_in? %>
           <%= nav_link "My Profile", profile_path(current_user.id) %>
+          <%= nav_link "Tracker", profile_updates_path(current_user.id) %>
         <% else %>
           <%= nav_link 'Login', new_user_session_path %>
           <%= nav_link 'Register', new_user_registration_path %>

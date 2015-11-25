@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Date Added:</strong>
+  <%= @update.created_at %>
+</p>
+
+<p>
   <strong>Weight:</strong>
   <%= @update.weight %>
 </p>
@@ -11,4 +16,4 @@
 </p>
 
 <%= link_to 'Edit', edit_update_path(@update) %> |
-<%= link_to 'Back', updates_path %>
+<%= link_to 'Back', profile_updates_path(@profile) %>

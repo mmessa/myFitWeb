@@ -7,88 +7,80 @@
 	-webkit-box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	box-sizing:border-box;
-  background: white;
+	background: white;
 }
-.image-slider-wrapper{
+.slider_wrapper{
 	overflow: hidden;
+	position:relative;
+	height:280px;
+	top:auto;
 }
 #image_slider{
+
 	position: relative;
+	height: auto;
+	list-style: none;
 	overflow: hidden;
-	height: 280px;
-	padding:0;
-	left:0;
+	float: left;
+	/*Chrom default padding for ul is 40px */
+	padding:0px;
+	margin:0px;
 }
 #image_slider li{
-	position:relative;
-	max-width: 100%;
-	float:left;
-	list-style: none;
-	left: 0;
+	position: relative;
+	float: left;
+}
+.nvgt{
+	position:absolute;
+	top: 120px;
+	height: 50px;
+	width: 30px;
+	opacity: 0.6;
+}
+.nvgt:hover{
+	opacity: 0.9;
+}
+#prev{
+	background: #000 url('https://dl.dropboxusercontent.com/u/65639888/image/prev.png') no-repeat center;
+	left: 0px;
+}
+#next{
+	background: #000 url('https://dl.dropboxusercontent.com/u/65639888/image/next.png') no-repeat center;
+	right: 0px;
 }
 </style>
 <script>
 var ul;
 var li_items;
-var li_number;
-var image_number = 0;
-var slider_width = 0;
-var image_width;
-var current = 0;
+var imageNumber;
+var imageWidth;
+var prev, next;
+var currentPostion = 0;
+var currentImage = 0;
+
+
 function init(){
 	ul = document.getElementById('image_slider');
 	li_items = ul.children;
-	li_number = li_items.length;
-	for (i = 0; i < li_number; i++){
-		// nodeType == 1 means the node is an element.
-		// in this way it's a cross-browser way.
-		//if (li_items[i].nodeType == 1){
-			//clietWidth and width???
-			image_width = li_items[i].childNodes[0].clientWidth;
-			slider_width += image_width;
-			image_number++;
-	}
-
-	ul.style.width = parseInt(slider_width) + 'px';
-	slider(ul);
+	imageNumber = li_items.length;
+	imageWidth = li_items[0].children[0].clientWidth;
+	ul.style.width = parseInt(imageWidth * imageNumber) + 'px';
+	prev = document.getElementById("prev");
+	next = document.getElementById("next");
+	//.onclike = slide(-1) will be fired when onload;
+	/*
+	prev.onclick = function(){slide(-1);};
+	next.onclick = function(){slide(1);};*/
+	prev.onclick = function(){ onClickPrev();};
+	next.onclick = function(){ onClickNext();};
 }
 
-function slider(){
-		animate({
-			delay:17,
-			duration: 3000,
-			delta:function(p){return Math.max(0, -1 + 2 * p)},
-			step:function(delta){
-					ul.style.left = '-' + parseInt(current * image_width + delta * image_width) + 'px';
-				},
-			callback:function(){
-				current++;
-				if(current < li_number-1){
-					slider();
-				}
-				else{
-					var left = (li_number - 1) * image_width;
-					setTimeout(function(){goBack(left)},2000);
-					setTimeout(slider, 4000);
-				}
-			}
-		});
-}
-function goBack(left_limits){
-	current = 0;
-	setInterval(function(){
-		if(left_limits >= 0){
-			ul.style.left = '-' + parseInt(left_limits) + 'px';
-			left_limits -= image_width / 10;
-		}
-	}, 17);
-}
 function animate(opts){
 	var start = new Date;
 	var id = setInterval(function(){
 		var timePassed = new Date - start;
-		var progress = timePassed / opts.duration
-		if(progress > 1){
+		var progress = timePassed / opts.duration;
+		if (progress > 1){
 			progress = 1;
 		}
 		var delta = opts.delta(progress);
@@ -97,31 +89,69 @@ function animate(opts){
 			clearInterval(id);
 			opts.callback();
 		}
-	}, opts.dalay || 17);
+	}, opts.delay || 17);
+	//return id;
+}
+
+function slideTo(imageToGo){
+	var direction;
+	var numOfImageToGo = Math.abs(imageToGo - currentImage);
+	// slide toward left
+
+	direction = currentImage > imageToGo ? 1 : -1;
+	currentPostion = -1 * currentImage * imageWidth;
+	var opts = {
+		duration:1000,
+		delta:function(p){return p;},
+		step:function(delta){
+			ul.style.left = parseInt(currentPostion + direction * delta * imageWidth * numOfImageToGo) + 'px';
+		},
+		callback:function(){currentImage = imageToGo;}
+	};
+	animate(opts);
+}
+
+function onClickPrev(){
+	if (currentImage == 0){
+		slideTo(imageNumber - 1);
+	}
+	else{
+		slideTo(currentImage - 1);
+	}
+}
+
+function onClickNext(){
+	if (currentImage == imageNumber - 1){
+		slideTo(0);
+	}
+	else{
+		slideTo(currentImage + 1);
+	}
 }
 window.onload = init;
 </script>
 
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-<head>
-  <title>MyFit Home</title>
-</head>
-<body>
+	<head>
+		<meta charset="utf-8">
+		<script type="text/javascript" src="Image-Slider-LnR.js"></script>
+		<link rel="stylesheet" type="text/css" href="Image-Slider-LnR.css">
+	</head>
 
-  		<div class="container">
-  			<div class="image-slider-wrapper">
-  				<ul id="image_slider">
-  					<li><img src="https://dl.dropboxusercontent.com/u/65639888/image/1.jpg"></li>
-  					<li><img src="https://dl.dropboxusercontent.com/u/65639888/image/4.jpg"></li>
-  					<li><img src="https://dl.dropboxusercontent.com/u/65639888/image/5.jpg"></li>
-  					<li><img src="https://dl.dropboxusercontent.com/u/65639888/image/1.jpg"></li>
-  					<li><img src="https://dl.dropboxusercontent.com/u/65639888/image/4.jpg"></li>
-  					<li><img src="https://dl.dropboxusercontent.com/u/65639888/image/5.jpg"></li>
-  				</ul>
-  				<div class="pager">
-  				</div>
-  			</div>
-  		</div>
-</body>
-</html>
+	<body>
+		<div class="container">
+			<div class="slider_wrapper">
+				<ul id="image_slider">
+					<li><img src="https://dl.dropboxusercontent.com/u/65639888/image/1.jpg"></li>
+					<li><img src="https://dl.dropboxusercontent.com/u/65639888/image/4.jpg"></li>
+					<li><img src="https://dl.dropboxusercontent.com/u/65639888/image/5.jpg"></li>
+					<li><img src="https://dl.dropboxusercontent.com/u/65639888/image/1.jpg"></li>
+					<li><img src="https://dl.dropboxusercontent.com/u/65639888/image/4.jpg"></li>
+					<li><img src="https://dl.dropboxusercontent.com/u/65639888/image/5.jpg"></li>
+				</ul>
+				<span class="nvgt" id="prev"></span>
+				<span class="nvgt" id="next"></span>
+			</div>
+		</div>
+	</body>

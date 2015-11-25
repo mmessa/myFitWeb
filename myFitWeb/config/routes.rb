@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
-  resources :exercises
-  resources :workouts
-  resources :supplements
-  resources :goals
-  resources :pictures
-  resources :profiles
-  devise_for :users
+
+  devise_for :users, controllers: { registrations: "users/registrations" }
 
   resources :users
 

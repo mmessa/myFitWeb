@@ -5,7 +5,8 @@ class UpdatesController < ApplicationController
   # GET /updates.json
   def index
     @profile = Profile.find params[:profile_id]
-    @updates = Update.all
+    @workouts = @profile.workouts
+    @updates = @profile.updates
   end
 
   # GET /updates/1

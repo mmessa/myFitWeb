@@ -12,4 +12,16 @@ class Profile < ActiveRecord::Base
      feet.to_s + " feet " + inches.to_s + " inches"
   end
 
+  def fat_weight
+    if self.weight != nil && self.body_fat != nil
+      fat_weight = self.weight * (self.body_fat * 0.01)
+    end
+  end
+
+  def lean_mass
+    if self.weight != nil && self.body_fat != nil
+      lean_mass = self.weight - self.fat_weight
+    end
+  end
+
 end

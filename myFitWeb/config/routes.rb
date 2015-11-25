@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :goals
     resources :pictures
     resources :supplements
+    resources :updates
     resources :workouts, shallow: true do
       resources :exercises
     end

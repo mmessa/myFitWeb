@@ -10,6 +10,12 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
+    @profile = Profile.find params[:id]
+    @user = current_user
+    @name = @user.name
+    @email = @user.email
+    @goals = @profile.goals
+
   end
 
   # GET /profiles/new

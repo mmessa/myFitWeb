@@ -23,13 +23,6 @@
     <p class="notice fixed-top"><%= notice %></p>
     <p class="alert fixed-top"><%= alert %></p>
 
-    <div id="user_nav fixed-top">
-    <% if user_signed_in? %>
-    Signed in as <%= current_user.email %>. Not you?
-    <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-    <% end %>
-    </div>
-
   <div class="container-fluid">
     <%= yield %>
   </div>

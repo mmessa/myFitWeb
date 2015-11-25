@@ -58,7 +58,6 @@ var prev, next;
 var currentPostion = 0;
 var currentImage = 0;
 
-
 function init(){
 	ul = document.getElementById('image_slider');
 	li_items = ul.children;
@@ -67,10 +66,6 @@ function init(){
 	ul.style.width = parseInt(imageWidth * imageNumber) + 'px';
 	prev = document.getElementById("prev");
 	next = document.getElementById("next");
-	//.onclike = slide(-1) will be fired when onload;
-	/*
-	prev.onclick = function(){slide(-1);};
-	next.onclick = function(){slide(1);};*/
 	prev.onclick = function(){ onClickPrev();};
 	next.onclick = function(){ onClickNext();};
 }

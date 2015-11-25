@@ -1,49 +1,98 @@
 <p id="notice"><%= notice %></p>
 
+  <p>
+    <strong>Name:</strong>
+    <%= @name %>
+    <br>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <%= @email %>
+    <br>
+  </p>
+
+  <p>
+    <strong>Age:</strong>
+    <% if @profile.age == nil %>
+      --<br>
+    <% else %>
+      <%= @profile.age %><br>
+    <% end %>
+      <small><%= link_to 'Update Age', edit_profile_path(@profile) %></small>
+    <br>
+  </p>
+
+  <p>
+    <strong>Gender:</strong>
+    <% if @profile.gender == "" %>
+      --<br>
+    <% else %>
+      <%= @profile.gender %><br>
+    <% end %>
+      <small><%= link_to 'Update gender', edit_profile_path(@profile) %></small>
+    <br>
+  </p>
+
+  <p>
+      <strong>Location:</strong>
+      <% if @profile.location == "" %>
+        --<br>
+      <% else %>
+        <%= @profile.location %><br>
+      <% end %>
+        <small><%= link_to 'Update Location', edit_profile_path(@profile) %></small>
+    <br>
+  </p>
+
+  <p>
+      <strong>Gym:</strong>
+      <% if @profile.gym == "" %>
+        --<br>
+      <% else %>
+        <%= @profile.gym %><br>
+      <% end %>
+        <small><%= link_to 'Update Gym', edit_profile_path(@profile) %></small>
+    <br>
+  </p>
+
+<hr>
+
 <p>
   <strong>Weight:</strong>
-  <%= @profile.weight %>
+  <% if @profile.weight == nil %>
+    --<br>
+  <% else %>
+    <%= @profile.weight %><br>
+  <% end %>
+    <small><%= link_to 'Update Weight', edit_profile_path(@profile) %></small>
+
 </p>
 
 <p>
-  <strong>Feet:</strong>
-  <%= @profile.feet %>
+  <strong>Height:</strong>
+  <% if @profile.feet == nil %>
+  --<br>
+  <% else %>
+    <%= @profile.height %><br>
+  <% end %>
+    <small><%= link_to 'Update Height', edit_profile_path(@profile) %></small>
 </p>
 
 <p>
-  <strong>Inches:</strong>
-  <%= @profile.inches %>
+  <strong>Body Fat:</strong>
+  <% if @profile.body_fat == nil %>
+  --<br>
+  <% else %>
+    <%= @profile.body_fat %>%<br>
+  <% end %>
+    <small><%= link_to 'Update Body Fat Percentage', edit_profile_path(@profile) %></small>
 </p>
 
-<p>
-  <strong>Body fat:</strong>
-  <%= @profile.body_fat %>
-</p>
 
-<p>
-  <strong>Age:</strong>
-  <%= @profile.age %>
-</p>
 
-<p>
-  <strong>Gender:</strong>
-  <%= @profile.gender %>
-</p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @profile.location %>
-</p>
 
-<p>
-  <strong>Gym:</strong>
-  <%= @profile.gym %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @profile.user_id %>
-</p>
 
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
 <%= link_to 'Back', profiles_path %>

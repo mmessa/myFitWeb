@@ -7,4 +7,9 @@ class Profile < ActiveRecord::Base
 
   belongs_to :user
 
+
+  def height
+     feet.to_s + " feet " + inches.to_s + " inches"
+  end
+
 end

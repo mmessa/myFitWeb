@@ -15,6 +15,7 @@ class ProfilesController < ApplicationController
     @name = @user.name
     @email = @user.email
     @goals = @profile.goals
+    @supplements = @profile.supplements
 
   end
 

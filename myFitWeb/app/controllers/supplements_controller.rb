@@ -14,7 +14,8 @@ class SupplementsController < ApplicationController
 
   # GET /supplements/new
   def new
-    @supplement = Supplement.new
+    @profile = Profile.find params[:profile_id]
+    @supplement = @profile.supplements.new
   end
 
   # GET /supplements/1/edit
@@ -24,11 +25,12 @@ class SupplementsController < ApplicationController
   # POST /supplements
   # POST /supplements.json
   def create
-    @supplement = Supplement.new(supplement_params)
+    @profile = Profile.find params[:profile_id]
+    @supplement = @profile.supplements.new(supplement_params)
 
     respond_to do |format|
       if @supplement.save
-        format.html { redirect_to @supplement, notice: 'Supplement was successfully created.' }
+        format.html { redirect_to profile_url(@profile), notice: 'Supplement was successfully created.' }
         format.json { render :show, status: :created, location: @supplement }
       else
         format.html { render :new }
@@ -42,7 +44,7 @@ class SupplementsController < ApplicationController
   def update
     respond_to do |format|
       if @supplement.update(supplement_params)
-        format.html { redirect_to @supplement, notice: 'Supplement was successfully updated.' }
+        format.html { redirect_to profile_url(@supplement.profile), notice: 'Supplement was successfully updated.' }
         format.json { render :show, status: :ok, location: @supplement }
       else
         format.html { render :edit }
@@ -56,7 +58,7 @@ class SupplementsController < ApplicationController
   def destroy
     @supplement.destroy
     respond_to do |format|
-      format.html { redirect_to supplements_url, notice: 'Supplement was successfully destroyed.' }
+      format.html { redirect_to profile_url(@supplement.profile), notice: 'Supplement was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

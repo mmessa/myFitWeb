@@ -1,3 +1,9 @@
+<style>
+.goal_description {
+  margin-left: 40px;
+}
+</style>
+
 <p id="notice"><%= notice %></p>
 
   <p>
@@ -89,7 +95,26 @@
     <small><%= link_to 'Update Body Fat Percentage', edit_profile_path(@profile) %></small>
 </p>
 
+<hr>
 
+<p>
+  <h4>Goals:</h4>
+  <% if @goals.empty? %>
+    <small>You Have Not Set a Goal</small><br>
+  <% else %>
+    <% @goals.each do |goal| %>
+      <strong>Goal: </strong>
+      <%= goal.name %>
+      <%= link_to 'Edit', edit_goal_path(goal) %>
+      <%= link_to 'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' } %><br>
+      <div class="goal_description">
+        <strong>Description: </strong><small><%= goal.description %></small>
+      </div>
+    <% end %>
+  <% end %>
+  <br>
+  <%= link_to "New Goal", new_profile_goal_path(@profile) %>
+</p>
 
 
 

@@ -3,147 +3,135 @@
   margin-left: 40px;
 }
 </style>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<p id="notice"><%= notice %></p>
+    <p>
+      <strong>Name:</strong>
+      <%= @name %>
+      <br>
+    </p>
 
-  <p>
-    <strong>Name:</strong>
-    <%= @name %>
-    <br>
-  </p>
+    <p>
+      <strong>Email:</strong>
+      <%= @email %>
+      <br>
+    </p>
 
-  <p>
-    <strong>Email:</strong>
-    <%= @email %>
-    <br>
-  </p>
-
-  <p>
-    <strong>Age:</strong>
-    <% if @profile.age == nil %>
-      --<br>
-    <% else %>
-      <%= @profile.age %><br>
-    <% end %>
-      <small><%= link_to 'Update Age', edit_profile_path(@profile) %></small>
-    <br>
-  </p>
-
-  <p>
-    <strong>Gender:</strong>
-    <% if @profile.gender == "" %>
-      --<br>
-    <% else %>
-      <%= @profile.gender %><br>
-    <% end %>
-      <small><%= link_to 'Update gender', edit_profile_path(@profile) %></small>
-    <br>
-  </p>
-
-  <p>
-      <strong>Location:</strong>
-      <% if @profile.location == "" %>
+    <p>
+      <strong>Age:</strong>
+      <% if @profile.age == nil %>
         --<br>
       <% else %>
-        <%= @profile.location %><br>
+        <%= @profile.age %><br>
       <% end %>
-        <small><%= link_to 'Update Location', edit_profile_path(@profile) %></small>
-    <br>
+    </p>
+
+    <p>
+      <strong>Gender:</strong>
+      <% if @profile.gender == nil %>
+        --<br>
+      <% else %>
+        <%= @profile.gender %><br>
+      <% end %>
+    </p>
+
+    <p>
+        <strong>Location:</strong>
+        <% if @profile.location == nil %>
+          --<br>
+        <% else %>
+          <%= @profile.location %><br>
+        <% end %>
+    </p>
+
+    <p>
+        <strong>Gym:</strong>
+        <% if @profile.gym == nil %>
+          --<br>
+        <% else %>
+          <%= @profile.gym %><br>
+        <% end %>
+          <small><%= link_to 'Edit', edit_profile_path(@profile) %></small>
+      <br>
+    </p>
+
+  <hr>
+
+  <p>
+    <strong>Current Weight:</strong>
+    <% if @profile.weight == nil %>
+      --<br>
+    <% else %>
+      <%= @profile.weight %> <small>LBS.</small><br>
+    <% end %>
   </p>
 
   <p>
-      <strong>Gym:</strong>
-      <% if @profile.gym == "" %>
-        --<br>
-      <% else %>
-        <%= @profile.gym %><br>
-      <% end %>
-        <small><%= link_to 'Update Gym', edit_profile_path(@profile) %></small>
-    <br>
-  </p>
-
-<hr>
-
-<p>
-  <strong>Current Weight:</strong>
-  <% if @profile.weight == nil %>
+    <strong>Current Body Fat:</strong>
+    <% if @profile.body_fat == nil %>
     --<br>
-  <% else %>
-    <%= @profile.weight %> <small>LBS.</small><br>
-  <% end %>
-    <small><%= link_to 'Update Weight', edit_profile_path(@profile) %></small>
-</p>
+    <% else %>
+      <%= @profile.body_fat %> <small>%</small><br>
+    <% end %>
+  </p>
 
-<p>
-  <strong>Current Body Fat:</strong>
-  <% if @profile.body_fat == nil %>
-  --<br>
-  <% else %>
-    <%= @profile.body_fat %> <small>%</small><br>
-  <% end %>
-    <small><%= link_to 'Update Body Fat Percentage', edit_profile_path(@profile) %></small>
-</p>
+  <p>
+    <% if @profile.lean_mass != nil && @profile.fat_weight != nil%>
+      <strong>Lean Body Mass: </strong>
+      <%= @profile.lean_mass %> <small>LBS.</small>
+      <br>
+      <strong>Body Fat: </strong>
+      <%= @profile.fat_weight %> <small>LBS.</small>
+      <br>
+    <% end %>
+  </p>
 
-<p>
-  <% if @profile.lean_mass != nil && @profile.fat_weight != nil%>
-    <strong>Lean Body Mass: </strong>
-    <%= @profile.lean_mass %> <small>LBS.</small>
+  <p>
+    <strong>Height:</strong>
+    <% if @profile.feet == nil %>
+    --<br>
+    <% else %>
+      <%= @profile.height %><br>
+    <% end %>
+      <small><%= link_to 'Edit', edit_profile_path(@profile) %></small>
+  </p>
+
+  <hr>
+
+  <p>
+    <h4>Goals:</h4>
+    <% if @goals.empty? %>
+      <small>You Have Not Set a Goal</small><br>
+    <% else %>
+      <% @goals.each do |goal| %>
+        <strong>Goal: </strong>
+        <%= goal.name %>
+        <%= link_to 'Edit', edit_goal_path(goal) %>
+        <%= link_to 'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' } %><br>
+        <div class="goal_description">
+          <strong>Description: </strong><small><%= goal.description %></small>
+        </div>
+      <% end %>
+    <% end %>
     <br>
-    <strong>Body Fat: </strong>
-    <%= @profile.fat_weight %> <small>LBS.</small>
-  <% end %>
-</p>
+    <%= link_to "Add a Goal", new_profile_goal_path(@profile) %>
+  </p>
+  <hr>
 
-<p>
-  <strong>Height:</strong>
-  <% if @profile.feet == nil %>
-  --<br>
-  <% else %>
-    <%= @profile.height %><br>
-  <% end %>
-    <small><%= link_to 'Update Height', edit_profile_path(@profile) %></small>
-</p>
-
-<hr>
-
-<p>
-  <h4>Goals:</h4>
-  <% if @goals.empty? %>
-    <small>You Have Not Set a Goal</small><br>
-  <% else %>
-    <% @goals.each do |goal| %>
-      <strong>Goal: </strong>
-      <%= goal.name %>
-      <%= link_to 'Edit', edit_goal_path(goal) %>
-      <%= link_to 'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' } %><br>
-      <div class="goal_description">
-        <strong>Description: </strong><small><%= goal.description %></small>
-      </div>
+  <p>
+    <h4>Supplements:</h4>
+    <% if @supplements.empty? %>
+      <small>You Have Not Added Any Supplements</small><br>
+    <% else %>
+      <% @supplements.each do |supplement| %>
+        <strong>Supplement: </strong>
+        <%= supplement.name %>
+        <%= link_to 'Edit', edit_supplement_path(supplement) %>
+        <%= link_to 'Destroy', supplement, method: :delete, data: { confirm: 'Are you sure?' } %><br>
+      <% end %>
     <% end %>
-  <% end %>
-  <br>
-  <%= link_to "Add a Goal", new_profile_goal_path(@profile) %>
-</p>
-<hr>
-
-<p>
-  <h4>Supplements:</h4>
-  <% if @supplements.empty? %>
-    <small>You Have Not Added Any Supplements</small><br>
-  <% else %>
-    <% @supplements.each do |supplement| %>
-      <strong>Supplement: </strong>
-      <%= supplement.name %>
-      <%= link_to 'Edit', edit_supplement_path(supplement) %>
-      <%= link_to 'Destroy', supplement, method: :delete, data: { confirm: 'Are you sure?' } %><br>
-    <% end %>
-  <% end %>
-  <br>
-  <%= link_to "Add a Supplement", new_profile_supplement_path(@profile) %>
-</p>
-
-
-
-
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
+    <br>
+    <%= link_to "Add a Supplement", new_profile_supplement_path(@profile) %>
+  </p>
+</div>

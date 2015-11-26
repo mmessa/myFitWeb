@@ -4,8 +4,9 @@
 }
 </style>
 <div class="container">
-  <p id="notice"><%= notice %></p>
 
+  <p id="notice"><%= notice %></p>
+<div class="personal">
     <p>
       <strong>Name:</strong>
       <%= @name %>
@@ -55,9 +56,10 @@
           <small><%= link_to 'Edit', edit_profile_path(@profile) %></small>
       <br>
     </p>
+  </div>
 
-  <hr>
-
+  <div class="weight">
+    <div class="user_weight">
   <p>
     <strong>Current Weight:</strong>
     <% if @profile.weight == nil %>
@@ -68,6 +70,7 @@
   </p>
 
   <p>
+
     <strong>Current Body Fat:</strong>
     <% if @profile.body_fat == nil %>
     --<br>
@@ -75,7 +78,8 @@
       <%= @profile.body_fat %> <small>%</small><br>
     <% end %>
   </p>
-
+  </div>
+<div class="calculated_bf">
   <p>
     <% if @profile.lean_mass != nil && @profile.fat_weight != nil%>
       <strong>Lean Body Mass: </strong>
@@ -86,7 +90,7 @@
       <br>
     <% end %>
   </p>
-
+</div>
   <p>
     <strong>Height:</strong>
     <% if @profile.feet == nil %>
@@ -96,9 +100,9 @@
     <% end %>
       <small><%= link_to 'Edit', edit_profile_path(@profile) %></small>
   </p>
-
+</div>
   <hr>
-
+  <div class="goals">
   <p>
     <h4>Goals:</h4>
     <% if @goals.empty? %>
@@ -117,8 +121,9 @@
     <br>
     <%= link_to "Add a Goal", new_profile_goal_path(@profile) %>
   </p>
-  <hr>
+</div>
 
+<div class="supplements">
   <p>
     <h4>Supplements:</h4>
     <% if @supplements.empty? %>
@@ -134,4 +139,5 @@
     <br>
     <%= link_to "Add a Supplement", new_profile_supplement_path(@profile) %>
   </p>
+</div>
 </div>

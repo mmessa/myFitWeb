@@ -6,6 +6,11 @@
 </p>
 
 <p>
+  <strong>Sets:</strong>
+  <%= @exercise.sets %>
+</p>
+
+<p>
   <strong>Repetitions:</strong>
   <%= @exercise.repetitions %>
 </p>
@@ -15,10 +20,6 @@
   <%= @exercise.notes %>
 </p>
 
-<p>
-  <strong>Workout:</strong>
-  <%= @exercise.workout_id %>
-</p>
 
 <%= link_to 'Edit', edit_exercise_path(@exercise) %> |
-<%= link_to 'Back', exercises_path %>
+<%= link_to 'Back', workout_path(@exercise.workout) %>

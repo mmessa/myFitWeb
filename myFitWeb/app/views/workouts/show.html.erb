@@ -3,7 +3,7 @@
   display: none;
 }
 
-.workout_description {
+.indent {
   margin-left: 40px;
 }
 </style>
@@ -14,26 +14,30 @@ $(document).on("click","#addButton",function(){
   $('#hide').toggle();
 });
 </script>
-
+<div class="container">
 <p id="notice"><%= notice %></p>
 
 <p>
   <h1><%= @workout.name %></h1>
-<div class="workout_description">
+<div class="indent">
   <strong>Description:</strong>
   <%= @workout.description %>
   </div>
   <hr>
 </p>
-
+<div class="indent">
+<h2>Exercises</h2>
+  <%= render :partial => 'exercises/exercises', :locals => { :workout => @workout } %>
+</div>
 <br>
 <div id="hide">
 <%= link_to "Add Exercise","#", id: "addButton" %>
 </div>
 <br>
 <div id="show">
-  <%= render :partial => 'exercises/form', :locals => { :workout => @workout } %>
+  <%= render :partial => 'exercises/add_exercise', :locals => { :workout => @workout } %>
 </div>
 
 <%= link_to 'Edit', edit_workout_path(@workout) %> |
 <%= link_to 'Back', profile_updates_path(@profile) %>
+</div>

@@ -24,11 +24,12 @@ class ExercisesController < ApplicationController
   # POST /exercises
   # POST /exercises.json
   def create
-    @exercise = Exercise.new(exercise_params)
+    @workout = Workout.find params[:workout_id]
+    @exercise = @workout.exercises.new(exercise_params)
 
     respond_to do |format|
       if @exercise.save
-        format.html { redirect_to @exercise, notice: 'Exercise was successfully created.' }
+        format.html { redirect_to workout_url(@workout), notice: 'Exercise was successfully created.' }
         format.json { render :show, status: :created, location: @exercise }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class ExercisesController < ApplicationController
   def update
     respond_to do |format|
       if @exercise.update(exercise_params)
-        format.html { redirect_to @exercise, notice: 'Exercise was successfully updated.' }
+        format.html { redirect_to workout_url(@exercise.workout), notice: 'Exercise was successfully updated.' }
         format.json { render :show, status: :ok, location: @exercise }
       else
         format.html { render :edit }
@@ -56,7 +57,7 @@ class ExercisesController < ApplicationController
   def destroy
     @exercise.destroy
     respond_to do |format|
-      format.html { redirect_to exercises_url, notice: 'Exercise was successfully destroyed.' }
+      format.html { redirect_to workout_url(@exercise.workout), notice: 'Exercise was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +70,6 @@ class ExercisesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exercise_params
-      params.require(:exercise).permit(:name, :repetitions, :notes, :workout_id)
+      params.require(:exercise).permit(:name, :sets, :repetitions, :notes, :workout_id)
     end
 end

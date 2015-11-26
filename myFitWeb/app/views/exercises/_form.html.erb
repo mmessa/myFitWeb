@@ -1,5 +1,4 @@
-<div id="exercise_form">
-  <%= form_for([workout, @exercise]) do |f| %>
+  <%= form_for([@workout, @exercise]) do |f| %>
     <% if @exercise.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@exercise.errors.count, "error") %> prohibited this exercise from being saved:</h2>
@@ -17,6 +16,10 @@
       <%= f.text_field :name %>
     </div>
     <div class="field">
+      <%= f.label :sets %><br>
+      <%= f.number_field :sets %>
+    </div>
+    <div class="field">
       <%= f.label :repetitions %><br>
       <%= f.number_field :repetitions %>
     </div>
@@ -28,4 +31,3 @@
       <%= f.submit %>
     </div>
   <% end %>
-</div>

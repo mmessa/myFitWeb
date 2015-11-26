@@ -10,23 +10,6 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :weight %><br>
-    <%= f.text_field :weight %>
-  </div>
-  <div class="field">
-    <%= f.label :feet %><br>
-    <%= f.number_field :feet %>
-  </div>
-  <div class="field">
-    <%= f.label :inches %><br>
-    <%= f.number_field :inches %>
-  </div>
-  <div class="field">
-    <%= f.label :body_fat %><br>
-    <%= f.text_field :body_fat %>
-  </div>
   <div class="field">
     <%= f.label :age %><br>
     <%= f.number_field :age %>
@@ -43,9 +26,24 @@
     <%= f.label :gym %><br>
     <%= f.text_field :gym %>
   </div>
+  <hr>
   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+    <%= f.label :weight %><br>
+    <%= f.text_field :weight %>
+  </div>
+  <div class="field">
+    <%= f.label :body_fat %><br>
+    <%= f.text_field :body_fat %>
+  </div>
+  <strong>Height:</strong>
+  <br>
+  <div class="field">
+    <%= f.label :feet %><br>
+    <%= f.number_field :feet %>
+  </div>
+  <div class="field">
+    <%= f.label :inches %><br>
+    <%= f.number_field :inches %>
   </div>
   <div class="actions">
     <%= f.submit %>

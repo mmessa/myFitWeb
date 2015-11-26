@@ -13,6 +13,7 @@ class WorkoutsController < ApplicationController
   def show
     @workout = Workout.find params[:id]
     @profile = @workout.profile
+    @exercise = @workout.exercises.new
   end
 
   # GET /workouts/new
@@ -23,6 +24,8 @@ class WorkoutsController < ApplicationController
 
   # GET /workouts/1/edit
   def edit
+    @workout = Workout.find params[:id]
+
   end
 
   # POST /workouts

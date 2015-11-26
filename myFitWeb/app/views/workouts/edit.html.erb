@@ -1,6 +1,6 @@
 <h1>Editing Workout</h1>
 
 <%= render 'form' %>
-
+<%= render :partial => 'exercises/form', :locals => { :workout => @workout } %>
 <%= link_to 'Show', @workout %> |
 <%= link_to 'Back', profile_updates_path(@workout.profile) %>

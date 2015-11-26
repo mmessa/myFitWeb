@@ -1,14 +1,40 @@
+<style>
+#show {
+  display: none;
+}
+
+.workout_description {
+  margin-left: 40px;
+}
+</style>
+
+<script>
+$(document).on("click","#addButton",function(){
+  $('#show').show();
+  $('#hide').toggle();
+});
+</script>
+
 <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Name:</strong>
-  <%= @workout.name %>
+  <h2><%= @workout.name %></h2>
 </p>
-
+<div class="workout_description">
 <p>
   <strong>Description:</strong>
   <%= @workout.description %>
 </p>
+</div>
+<br>
+<div id="hide">
+<%= link_to "Add Exercise","#", id: "addButton" %>
+</div>
+<br>
+<div id="show">
+  <%= render :partial => 'exercises/form', :locals => { :workout => @workout } %>
+</div>
 
 <%= link_to 'Edit', edit_workout_path(@workout) %> |
 <%= link_to 'Back', profile_updates_path(@profile) %>

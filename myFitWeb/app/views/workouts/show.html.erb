@@ -18,15 +18,14 @@ $(document).on("click","#addButton",function(){
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <h2><%= @workout.name %></h2>
-</p>
+  <h1><%= @workout.name %></h1>
 <div class="workout_description">
-<p>
   <strong>Description:</strong>
   <%= @workout.description %>
+  </div>
+  <hr>
 </p>
-</div>
+
 <br>
 <div id="hide">
 <%= link_to "Add Exercise","#", id: "addButton" %>

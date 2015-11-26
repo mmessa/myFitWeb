@@ -1,23 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Workouts</h1>
-
-<table>
+<table class="table">
   <thead>
     <tr>
+      <th>Date Created</th>
       <th>Name</th>
       <th>Description</th>
-      <th>Profile</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @workouts.each do |workout| %>
+    <% workouts.each do |workout| %>
       <tr>
+        <td><%= workout.created_at %>
         <td><%= workout.name %></td>
         <td><%= workout.description %></td>
-        <td><%= workout.profile_id %></td>
         <td><%= link_to 'Show', workout %></td>
         <td><%= link_to 'Edit', edit_workout_path(workout) %></td>
         <td><%= link_to 'Destroy', workout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -25,7 +23,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Workout', new_profile_workout_path(@profile) %>

@@ -4,7 +4,7 @@
   <h1>Listing Your Updates</h1>
   <p>
     <% if @updates.empty? %>
-        <small>You have not logged an update yet</small>
+        <small>You have not logged an update</small>
     <% else %>
       <table class="table">
         <thead>
@@ -38,7 +38,7 @@
   <h1> Listing Your Workouts </h1>
     <p>
       <% if @workouts.empty? %>
-        <small>You have not created a workout yet</small>
+        <small>You have not created a workout</small>
       <% else %>
         <%= render :partial => 'workouts/workouts', :locals => { :workouts => @workouts } %>
       <% end %>

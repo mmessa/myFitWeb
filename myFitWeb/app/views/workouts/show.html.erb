@@ -10,10 +10,5 @@
   <%= @workout.description %>
 </p>
 
-<p>
-  <strong>Profile:</strong>
-  <%= @workout.profile_id %>
-</p>
-
 <%= link_to 'Edit', edit_workout_path(@workout) %> |
-<%= link_to 'Back', workouts_path %>
+<%= link_to 'Back', profile_updates_path(@profile) %>

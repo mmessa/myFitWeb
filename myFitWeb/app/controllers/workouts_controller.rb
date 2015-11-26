@@ -11,6 +11,8 @@ class WorkoutsController < ApplicationController
   # GET /workouts/1
   # GET /workouts/1.json
   def show
+    @workout = Workout.find params[:id]
+    @profile = @workout.profile
   end
 
   # GET /workouts/new

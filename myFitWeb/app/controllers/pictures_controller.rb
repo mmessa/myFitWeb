@@ -25,17 +25,32 @@ class PicturesController < ApplicationController
   # POST /pictures.json
   def create
     @picture = Picture.new(picture_params)
+    @picture.generate_filename  # a function you write to generate a random filename and put it in the images "filename" variable
+    @picture.user = current_user
 
-    respond_to do |format|
-      if @picture.save
-        format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
-        format.json { render :show, status: :created, location: @picture }
-      else
-        format.html { render :new }
-        format.json { render json: @picture.errors, status: :unprocessable_entity }
-      end
+    @uploaded_io = params[:picture][:uploaded_file]
+
+    File.open(Rails.root.join('public', 'images', @picture.filename), 'wb') do |file|
+        file.write(@uploaded_io.read)
+    end
+
+    if @picture.save
+      redirect_to @image, notice: 'Image was successfully created.'
+    else
+      render :new
     end
   end
+
+    #respond_to do |format|
+    #  if @picture.save
+    #    format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
+    #    format.json { render :show, status: :created, location: @picture }
+    #  else
+    #    format.html { render :new }
+    #    format.json { render json: @picture.errors, status: :unprocessable_entity }
+    #  end
+    #end
+  #end
 
   # PATCH/PUT /pictures/1
   # PATCH/PUT /pictures/1.json

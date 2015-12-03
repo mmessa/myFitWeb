@@ -20,6 +20,7 @@ class UpdatesController < ApplicationController
   def new
     @profile = Profile.find params[:profile_id]
     @update = @profile.updates.new
+    @picture = @update.pictures.new
   end
 
   # GET /updates/1/edit

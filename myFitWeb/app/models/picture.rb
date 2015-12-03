@@ -5,7 +5,6 @@ class Picture < ActiveRecord::Base
      self.filename = string + ".jpg"
   end
 
-  belongs_to :profile
-  belongs_to :update
+  belongs_to :update_pic, foreign_key: "update_id", class_name: "Update"
 
 end

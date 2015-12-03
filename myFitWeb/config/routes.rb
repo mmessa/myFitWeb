@@ -6,9 +6,10 @@ Rails.application.routes.draw do
 
   resources :profiles, shallow: true do
     resources :goals
-    resources :pictures
     resources :supplements
-    resources :updates
+    resources :updates, shallow: true do
+      resources :pictures
+    end
     resources :workouts, shallow: true do
       resources :exercises
     end

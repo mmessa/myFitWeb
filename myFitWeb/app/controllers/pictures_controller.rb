@@ -14,7 +14,8 @@ class PicturesController < ApplicationController
 
   # GET /pictures/new
   def new
-    @picture = Picture.new
+    @update = Update.find params[:update_id]
+    @picture = @update.pictures.new
   end
 
   # GET /pictures/1/edit
@@ -24,18 +25,18 @@ class PicturesController < ApplicationController
   # POST /pictures
   # POST /pictures.json
   def create
-    @picture = Picture.new(picture_params)
+    @update = Update.find params[:update_id]
+    @picture = @update.pictures.new(picture_params)
     @picture.generate_filename  # a function you write to generate a random filename and put it in the images "filename" variable
-    @picture.user = current_user
 
     @uploaded_io = params[:picture][:uploaded_file]
 
-    File.open(Rails.root.join('public', 'images', @picture.filename), 'wb') do |file|
+    File.open(Rails.root.join('public', 'images', @picture.name), 'wb') do |file|
         file.write(@uploaded_io.read)
     end
 
     if @picture.save
-      redirect_to @image, notice: 'Image was successfully created.'
+      redirect_to profile_updates_url(@update.profile), notice: 'Image was successfully created.'
     else
       render :new
     end

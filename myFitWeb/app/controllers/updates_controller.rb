@@ -1,6 +1,12 @@
 class UpdatesController < ApplicationController
   before_action :set_update, only: [:show, :edit, :update, :destroy]
 
+  #def create_update
+  #  @profile = Profile.find params[:profile_id]
+  #  new_update = @profile.updates.create(weight: 0, notes: "test")
+
+  #end
+
   # GET /updates
   # GET /updates.json
   def index
@@ -14,13 +20,15 @@ class UpdatesController < ApplicationController
   def show
     @update = Update.find params[:id]
     @profile = @update.profile
+    @picture = @update.pictures.new
   end
 
   # GET /updates/new
   def new
     @profile = Profile.find params[:profile_id]
+
     @update = @profile.updates.new
-    @picture = @update.pictures.new
+    #@picture = @update.pictures.new
   end
 
   # GET /updates/1/edit
@@ -35,7 +43,7 @@ class UpdatesController < ApplicationController
 
     respond_to do |format|
       if @update.save
-        format.html { redirect_to profile_updates_path(@profile), notice: 'Update was successfully created.' }
+        format.html { redirect_to update_path(@update), notice: 'Update was successfully created.' }
         format.json { render :show, status: :created, location: @update }
       else
         format.html { render :new }

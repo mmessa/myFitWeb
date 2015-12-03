@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Date Added:</strong>
-  <%= @update.created_at %>
-</p>
-
-<p>
   <strong>Weight:</strong>
   <%= @update.weight %>
 </p>
@@ -14,6 +9,17 @@
   <strong>Notes:</strong>
   <%= @update.notes %>
 </p>
+<p>
+  <% if !@update.pictures.empty? %>
+    <% @update.pictures.each do |picture| %>
+      <% if !picture.new_record? %>
+        <%= image_tag picture.name, size: "175x200", alt: picture.name %>
+      <% end %>
+    <% end %>
+  <% end %>
+</p>
+<h1> Add a New Progress Picture </h1>
+<%= render :partial => 'pictures/form', :locals => { :update => @update } %>
 
 <%= link_to 'Edit', edit_update_path(@update) %> |
 <%= link_to 'Back', profile_updates_path(@profile) %>

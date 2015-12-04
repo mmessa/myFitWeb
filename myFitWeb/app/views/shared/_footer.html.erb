@@ -1,0 +1,74 @@
+<style>
+.quote {
+  text-align: left;
+  background-color: gray;
+  color: white;
+  padding-left: 15px;
+  padding-top: 5px;
+
+}
+
+.quote .author {
+  margin-left: 20px;
+}
+
+.footer {
+  color: white;
+  height: 500px;
+  margin-top: 10em;
+  background-color: black;
+
+}
+
+.footer .logo_section {
+  background-color: #333333;
+  padding: 10px;
+  font-size: 50px;
+  text-align: center;
+}
+
+.footer_nav_social {
+
+  padding: 10px;
+}
+.footer ul {
+  list-style-type: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+.footer li {
+  padding-right: 5px;
+  display: inline;
+  margin-right: 5px;
+
+}
+</style>
+
+<div class="footer">
+  <div class="quote">
+    <strong>"Ability is what you're capable of doing. Motivation determines what you do. Attitude determines how well you do it."</strong>
+    <div class="author"><em>- Lou Holtz</em></div>
+  </div>
+  <div class="logo_section">
+    <div class="logo">
+      <%= link_to image_tag("/images/website/myfit_logo.png", size: "200x200", alt: "myFit Logo"), root_url %>
+    </div>
+    <p>
+    <strong>This is MyFit</strong>
+    <br>
+    Your progress is what drives us. MyFit is your place where you can keep track of your progress,
+    your goals, your updates, your supplements, your workouts, and more. MyFit gives you the
+    technolgoy, tools, and support to help you achieve all of your fitness aspirations, and ultimately
+    become your best self.
+    </p>
+  </div>
+
+  <div class="footer_nav_social">
+    <ul>
+      <li>Myfit</li>
+      <li>Facebook</li>
+      <li>Instagram</li>
+    </ul>
+  </div>
+</div>

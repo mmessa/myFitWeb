@@ -2,19 +2,25 @@
 /* navbar */
 .navbar-default {
     background-color: black;
+    height: 75px;
     border-color: gray;
 }
 /* title */
 .navbar-default .navbar-brand {
+    height: 75px;
     color: white;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
     color: gray;
+    height: 75px;
 }
 /* link */
 .navbar-default .navbar-nav > li > a {
     color: white;
+    padding-top: 26px;
+    font-size: 15px;
+    height: 74px;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
@@ -87,7 +93,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to "MyFit", root_path, { :'data-no-turbolink' =>  "true", class: "navbar-brand" } %>
+      <%= link_to image_tag("/images/website/myfit_logo2.png", size: "75x75", alt: "myFit Logo", :'data-no-turbolink' =>  "true", class: "navbar-brand"), root_path %>
+
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

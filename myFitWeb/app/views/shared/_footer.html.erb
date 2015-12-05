@@ -3,13 +3,17 @@
   text-align: left;
   background-color: gray;
   color: white;
-  padding-left: 15px;
+  padding-left: 5%;
   padding-top: 5px;
 
 }
 
+.description {
+  padding: 10px;
+}
+
 .quote .author {
-  margin-left: 20px;
+  padding-left: 10%;
 }
 
 .footer {
@@ -22,13 +26,16 @@
 
 .footer .logo_section {
   background-color: #333333;
-  padding: 10px;
-  font-size: 50px;
+  padding-top: 30px;
+  padding-bottom: 8px;
+  padding-left: 20%;
+  padding-right: 20%;
+  font-family: "Arial Black", Gadget, sans-serif !important;
+  font-size: 30px !important;
   text-align: center;
 }
 
 .footer_nav_social {
-
   padding: 10px;
 }
 .footer ul {
@@ -40,7 +47,7 @@
 .footer li {
   padding-right: 5px;
   display: inline;
-  margin-right: 5px;
+  margin-right: 10px;
 
 }
 </style>
@@ -52,9 +59,9 @@
   </div>
   <div class="logo_section">
     <div class="logo">
-      <%= link_to image_tag("/images/website/myfit_logo.png", size: "200x200", alt: "myFit Logo"), root_url %>
+      <%= link_to image_tag("/images/website/myfit_logov2.png", size: "200x200", alt: "myFit Logo"), root_url %>
     </div>
-    <p>
+    <p class="description">
     <strong>This is MyFit</strong>
     <br>
     Your progress is what drives us. MyFit is your place where you can keep track of your progress,
@@ -66,9 +73,10 @@
 
   <div class="footer_nav_social">
     <ul>
-      <li>Myfit</li>
-      <li>Facebook</li>
-      <li>Instagram</li>
+      <li><%= link_to image_tag("/images/website/myfit_logo2v2-1.png", size: "30x30", alt: "myFit Logo"), root_url %></li>
+      <li><%= link_to image_tag("/images/website/mf_instagram.png", size: "30x30", alt: "instagram"), root_url %></li>
+      <li><%= link_to image_tag("/images/website/mf_facebook.png", size: "40x40", alt: "facebook"), root_url %></li>
+      <li><%= link_to image_tag("/images/website/mf_twitter.png", size: "30x30", alt: "twitter"), root_url %></li>
     </ul>
   </div>
 </div>

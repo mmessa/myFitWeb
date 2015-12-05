@@ -1,74 +1,30 @@
 <style>
-.quote {
-  text-align: left;
-  background-color: gray;
-  color: white;
-  padding-left: 5%;
-  padding-top: 5px;
-
-}
-
-.description {
-  padding: 10px;
-}
-
-.quote .author {
-  padding-left: 10%;
-}
-
-.footer {
-  color: white;
-  height: 500px;
-  margin-top: 10em;
-  background-color: black;
-
-}
-
-.footer .logo_section {
-  background-color: #333333;
-  padding-top: 30px;
-  padding-bottom: 8px;
-  padding-left: 20%;
-  padding-right: 20%;
-  font-family: "Arial Black", Gadget, sans-serif !important;
-  font-size: 30px !important;
-  text-align: center;
-}
-
-.footer_nav_social {
-  padding: 10px;
-}
-.footer ul {
-  list-style-type: none;
-  text-align: center;
+h1 {
+  color: #F00000;
   margin: 0;
-  padding: 0;
+  padding-bottom: 10px;
 }
-.footer li {
-  padding-right: 5px;
-  display: inline;
-  margin-right: 10px;
 
-}
 </style>
-
+<head>
+  <link rel="stylesheet" type="text/css" href="stylesheets/footer.scss" />
+</head>
 <div class="footer">
   <div class="quote">
-    <strong>"Ability is what you're capable of doing. Motivation determines what you do. Attitude determines how well you do it."</strong>
+    "Ability is what you're capable of doing. Motivation determines what you do. Attitude determines how well you do it."
     <div class="author"><em>- Lou Holtz</em></div>
   </div>
   <div class="logo_section">
     <div class="logo">
       <%= link_to image_tag("/images/website/myfit_logov2.png", size: "200x200", alt: "myFit Logo"), root_url %>
     </div>
-    <p class="description">
-    <strong>This is MyFit</strong>
-    <br>
-    Your progress is what drives us. MyFit is your place where you can keep track of your progress,
-    your goals, your updates, your supplements, your workouts, and more. MyFit gives you the
-    technolgoy, tools, and support to help you achieve all of your fitness aspirations, and ultimately
-    become your best self.
-    </p>
+    <div class="description">
+      <h1>This is MyFit</h1>
+      Your progress is what drives us. MyFit is your place where you can keep track of your progress,
+      your goals, your updates, your supplements, your workouts, and more. MyFit gives you the
+      technolgoy, tools, and support to help you achieve all of your fitness aspirations, and ultimately
+      become your best self.
+    </div>
   </div>
 
   <div class="footer_nav_social">

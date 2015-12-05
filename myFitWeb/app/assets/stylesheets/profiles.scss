@@ -2,48 +2,135 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.personal {
+@import 'bootstrap';
+
+.top_section {
+  padding-top: 40px;
+  height: 360px;
+  border-bottom: 1px solid black;
+}
+
+.edit_button {
+  padding-top: 2em;
+}
+.supplements_title {
+  margin-top: 20px;
+  margin-bottom: 0;
   padding: 5px;
-  margin: 10px;
-  display: inline-block;
-  width: 45%;
-  float: left;
-  border: 2px solid black;
+  padding-bottom: 8px;
+  background-color: #333333;
+  margin-left: 5%;
+  margin-right: 5%;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
-.user_weight {
-  padding: 5px 5px 20px 0px;
-  display: inline-block;
-  //margin: 10px;
-  float: left;
+.goals_title {
+  margin-top: 20px;
+  padding: 5px;
+  background-color: #333333;
+  margin-left: 5%;
+  margin-right: 5%;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+
 }
 
-.calculated_bf {
-  padding: 5px 5px 63px 10px;
-  display: inline-block;
-  //margin: 10px;
-  //float: right;
+.goals_title h1 {
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.supplements_title h1 {
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+
+.info {
+  color: black;
+  font-weight: bold;
+}
+.supplements {
+  margin-top: 0;
+  padding-bottom: 20px;
+  height: auto;
+  //border-bottom: 1px solid black;
+}
+.supplements_content {
+  margin-left: 5%;
+  margin-right: 5%;
+  //padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #F0F0F0;
+  font-size: 30px;
+}
+.goals {
+  padding-bottom: 20px;
+  //height: auto;
+  border-bottom: 1px solid black;
+}
+.goals_content{
+  margin-left: 5%;
+  margin-right: 5%;
+  //padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
+  border: 1px solid black;
+  border-bottom-radius: 15px;
+  background-color: #F0F0F0;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: gray;
+}
+
+.personal {
+  float: left;
+  height: 300px;
+  width:45%;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #F0F0F0;
+  color: gray;
 }
 
 .weight {
-  padding: 5px 5px 73px 5px;
-  margin: 10px 10px 10px 10px;
-  display: inline-block;
-  width: 50%;
-  //float: left;
-  border: 2px solid black;
-}
+  float: left;
+  width: 40%;
+  height: 300px;
+  margin-right: 5%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+  color: gray;
+  background-color: #F0F0F0;
 
-.goals {
-  padding: 5px;
-  margin: 30px 10px;
-  display: block;
-  border: 2px solid black;
-}
-
-.supplements {
-  padding: 5px;
-  margin: 10px;
-  display: block;
-  border: 2px solid black;
 }

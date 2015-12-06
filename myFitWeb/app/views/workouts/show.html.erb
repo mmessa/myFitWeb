@@ -22,7 +22,7 @@ $(document).on("click","#addButton",function(){
 <div class="indent">
 <h2>Exercises</h2>
   <%= render :partial => 'exercises/exercises', :locals => { :workout => @workout } %>
-</div>
+
 <br>
 <div id="hide">
 <%= link_to "Add Exercise","#", id: "addButton" %>
@@ -31,7 +31,7 @@ $(document).on("click","#addButton",function(){
 <div id="show">
   <%= render :partial => 'exercises/add_exercise', :locals => { :workout => @workout } %>
 </div>
-
+</div>
 <%= link_to 'Edit', edit_workout_path(@workout) %> |
 <%= link_to 'Back', profile_updates_path(@profile) %>
 </div>

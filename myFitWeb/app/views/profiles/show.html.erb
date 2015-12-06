@@ -143,7 +143,7 @@ body {
               <td><%= goal.name %></td>
               <td><%= goal.description %></td>
               <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
-              <td><%= link_to 'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' } %></td><br>
+              <td><%= link_to 'Delete', goal, method: :delete, data: { confirm: 'Are you sure?' } %></td><br>
               <% end %>
             </tbody>
           </table>
@@ -175,7 +175,7 @@ body {
                 <% @supplements.each do |supplement| %>
                 <td><%= supplement.name %></td>
                 <td><%= link_to 'Edit', edit_supplement_path(supplement) %></td>
-                <td><%= link_to 'Destroy', supplement, method: :delete, data: { confirm: 'Are you sure?' } %></td><br>
+                <td><%= link_to 'Delete', supplement, method: :delete, data: { confirm: 'Are you sure?' } %></td><br>
                 <% end %>
               </tbody>
               <% end %>

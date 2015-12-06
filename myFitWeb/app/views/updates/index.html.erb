@@ -18,7 +18,7 @@
         <tbody>
           <% @updates.each do |update| %>
             <tr>
-                <td><%= update.created_at %></td>
+                <td><%= update.created_at.to_formatted_s(:long_ordinal) %></td>
                 <td><%= update.weight %></td>
                 <td><%= update.notes %></td>
                 <td><%= link_to 'Add Picture', update %></td>

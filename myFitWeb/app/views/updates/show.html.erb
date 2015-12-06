@@ -13,7 +13,7 @@
   <tbody>
     <td><%= @update.weight %></td>
     <td><%= @update.notes %></td>
-    <td><%= @update.created_at %></td>
+    <td><%= @update.created_at.to_formatted_s(:long_ordinal) %></td>
   </tbody>
 </table>
 </div>

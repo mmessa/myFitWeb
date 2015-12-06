@@ -32,6 +32,5 @@ $(document).on("click","#addButton",function(){
   <%= render :partial => 'exercises/add_exercise', :locals => { :workout => @workout } %>
 </div>
 </div>
-<%= link_to 'Edit', edit_workout_path(@workout) %> |
 <%= link_to 'Back', profile_updates_path(@profile) %>
 </div>

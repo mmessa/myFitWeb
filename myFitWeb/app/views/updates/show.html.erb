@@ -1,14 +1,22 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Weight:</strong>
-  <%= @update.weight %>
-</p>
-
-<p>
-  <strong>Notes:</strong>
-  <%= @update.notes %>
-</p>
+<div class="show_table">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Weight</th>
+      <th>Notes</th>
+      <th>Date Added</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <td><%= @update.weight %></td>
+    <td><%= @update.notes %></td>
+    <td><%= @update.created_at %></td>
+  </tbody>
+</table>
+</div>
 <p>
   <% if !@update.pictures.empty? %>
     <% @update.pictures.each do |picture| %>
@@ -18,8 +26,9 @@
     <% end %>
   <% end %>
 </p>
-<h1> Add a New Progress Picture </h1>
+<h1 class="header"> Add a New Progress Picture </h1>
 <%= render :partial => 'pictures/form', :locals => { :update => @update } %>
 
 <%= link_to 'Edit', edit_update_path(@update) %> |
 <%= link_to 'Back', profile_updates_path(@profile) %>
+</div>

@@ -1,6 +1,8 @@
-<h1>Editing Goal</h1>
+<div class="container">
+<h1 class="header">Editing Goal</h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Show', @goal %> |
-<%= link_to 'Back', goals_path %>
+<%= link_to 'Back', profile_path(@goal.profile) %>
+</div>

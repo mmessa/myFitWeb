@@ -1,6 +1,8 @@
-<h1>Editing Supplement</h1>
+<div class="container">
+<h1 class="header">Editing Supplement</h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Show', @supplement %> |
-<%= link_to 'Back', supplements_path %>
+<%= link_to 'Back', profile_path(@supplement.profile) %>
+</div>

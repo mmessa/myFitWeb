@@ -8,3 +8,4 @@ class Picture < ActiveRecord::Base
   belongs_to :update_pic, foreign_key: "update_id", class_name: "Update"
 
 end
+  

@@ -1,157 +1,190 @@
 <style>
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
 body {
   background-color: #F8F8F8;
 }
+
+.personal p {
+  font-size: 16px;
+  line-height: 1.5em;
+}
+
+.weight p {
+  font-size: 16px;
+  line-height: 1.5em;
+}
 </style>
 <body>
-<div class="container">
-  <p id="notice"><%= notice %></p>
-  <div class="top_section">
-    <div class="personal">
-      <p>
-        <strong>Name:</strong>
-        <span class="info"><%= @name %></span>
-        <br>
-      </p>
-      <p>
-        <strong>Email:</strong>
-        <span class="info"><%= @email %></span>
-        <br>
-      </p>
+  <div class="container">
+    <p id="notice"><%= notice %></p>
+    <div class="top_section">
+      <div class="personal">
+        <p>
+          <span class="classifier"><strong>Name</strong></span>
+          <span class="info"><%= @name %></span>
+          <br>
+        </p>
+        <p>
+          <span class="classifier"><strong>Email</strong></span>
+          <span class="info"><%= @email %></span>
+          <br>
+        </p>
 
-      <p>
-        <strong>Age:</strong>
-        <% if @profile.age == nil %>
+        <p>
+          <span class="classifier"><strong>Age</strong></span>
+          <% if @profile.age == nil %>
           <span class="info">--</span><br>
-        <% else %>
+          <% else %>
           <span class="info"><%= @profile.age %></span><br>
-        <% end %>
-      </p>
-
-      <p>
-        <strong>Gender:</strong>
-        <% if @profile.gender == nil %>
-          <span class="info">--</span><br>
-        <% else %>
-          <span class="info"><%= @profile.gender %></span><br>
-        <% end %>
-      </p>
-
-      <p>
-          <strong>Location:</strong>
-          <% if @profile.location == nil %>
-            <span class="info">--</span><br>
-          <% else %>
-            <span class="info"><%= @profile.location %></span><br>
           <% end %>
-      </p>
+        </p>
 
-      <p>
-          <strong>Gym:</strong>
-          <% if @profile.gym == nil %>
-            <span class="info">--</span><br>
+        <p>
+          <span class="classifier"><strong>Gender</strong></span>
+          <% if @profile.gender == nil %>
+          <span class="info">--</span><br>
           <% else %>
-            <span class="info"><%= @profile.gym %></span><br>
+          <span class="info"><%= @profile.gender %></span><br>
+          <% end %>
+        </p>
+
+        <p>
+          <span class="classifier"><strong>Location</strong></span>
+          <% if @profile.location == nil %>
+          <span class="info">--</span><br>
+          <% else %>
+          <span class="info"><%= @profile.location %></span><br>
+          <% end %>
+        </p>
+
+        <p>
+          <span class="classifier"><strong>Gym</strong></span>
+          <% if @profile.gym == nil %>
+          <span class="info">--</span><br>
+          <% else %>
+          <span class="info"><%= @profile.gym %></span><br>
           <% end %>
           <div class="edit_button">
             <small><%= link_to 'Edit', edit_profile_path(@profile) %></small>
           </div>
-        <br>
-      </p>
-  </div>
-
-  <div class="weight">
-    <div class="user_weight">
-    <p>
-      <strong>Current Weight:</strong>
-      <% if @profile.weight == nil %>
-        <span class="info">--</span><br>
-      <% else %>
-        <span class="info"><%= @profile.weight %> <small>LBS.</small></span><br>
-      <% end %>
-    </p>
-
-    <p>
-
-      <strong>Current Body Fat:</strong>
-      <% if @profile.body_fat == nil %>
-      <span class="info">--</span><br>
-      <% else %>
-        <span class="info"><%= @profile.body_fat %> <small>%</small></span><br>
-      <% end %>
-    </p>
-    </div>
-  <div class="calculated_bf">
-    <p>
-      <% if @profile.lean_mass != nil && @profile.fat_weight != nil%>
-        <strong>Lean Body Mass: </strong>
-        <span class="info"><%= @profile.lean_mass %> <small>LBS.</small></span>
-        <br>
-        <strong>Body Fat: </strong>
-        <span class="info"><%= @profile.fat_weight %> <small>LBS.</small></span>
-        <br>
-      <% end %>
-    </p>
-  </div>
-    <p>
-      <strong>Height:</strong>
-      <% if @profile.feet == nil %>
-      <span class="info">--</span><br>
-      <% else %>
-        <span class="info"><%= @profile.height %></span><br>
-      <% end %>
-      <div class="edit_button">
-        <small><%= link_to 'Edit', edit_profile_path(@profile) %></small>
+          <br>
+        </p>
       </div>
-    </p>
-  </div>
-</div>
-<div class="goals_title">
-  <h1>Goals</h1>
-</div>
-  <div class="goals">
-    <div class="goals_content">
-  <p>
-    <% if @goals.empty? %>
-      <small>You Have Not Set a Goal</small><br>
-    <% else %>
-      <% @goals.each do |goal| %>
-        <strong>Goal: </strong>
-        <%= goal.name %>
-        <%= link_to 'Edit', edit_goal_path(goal) %>
-        <%= link_to 'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' } %><br>
-        <div class="goal_description">
-          <strong>Description: </strong><small><%= goal.description %></small>
+
+      <div class="weight_title">
+        <h1>Body Composition</h1>
+      </div>
+      <div class="weight">
+        <p>
+          <span class="weight_classifier"><strong>Current Weight</strong></span>
+          <% if @profile.weight == nil %>
+          <span class="weight_info">--</span><br>
+          <% else %>
+          <span class="weight_info"><%= @profile.weight %> <small>LBS.</small></span><br>
+          <% end %>
+        </p>
+
+        <p>
+          <span class="weight_classifier"><strong>Current Body Fat</strong></span>
+          <% if @profile.body_fat == nil %>
+          <span class="weight_info">--</span><br>
+          <% else %>
+          <span class="weight_info"><%= @profile.body_fat %> <small>%</small></span><br>
+          <% end %>
+        </p>
+        <p>
+        <% if @profile.lean_mass != nil && @profile.fat_weight != nil%>
+          <span class="weight_classifier"><strong>Lean Body Mass</strong></span>
+          <span class="weight_info"><%= @profile.lean_mass %> <small>LBS.</small></span><br>
+          <span class="weight_classifier"><strong>Body Fat</strong></span>
+          <span class="weight_info"><%= @profile.fat_weight %> <small>LBS.</small></span><br>
+        <% end %>
+        </p>
+
+        <p>
+          <span class="weight_classifier"><strong>Height</strong></span>
+          <% if @profile.feet == nil %>
+          <span class="weight_info">--</span><br>
+          <% else %>
+          <span class="weight_info"><%= @profile.height %></span><br>
+          <% end %>
+        </p>
+
+        <div class="edit_button">
+          <small><%= link_to 'Edit', edit_profile_path(@profile) %></small>
         </div>
-      <% end %>
-    <% end %>
-    <br>
-    <%= link_to "Add a Goal", new_profile_goal_path(@profile) %>
-  </p>
+      </div>
+    </div>
+    <div class="goals_title">
+      <h1>Goals</h1>
+    </div>
+    <div class="goals">
+      <div class="goals_content">
+        <p>
+          <% if @goals.empty? %>
+          <small>You Have Not Set a Goal</small><br>
+          <% else %>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Goal</th>
+                <th>Description</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @goals.each do |goal| %>
+              <td><%= goal.name %></td>
+              <td><%= goal.description %></td>
+              <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
+              <td><%= link_to 'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' } %></td><br>
+              <% end %>
+            </tbody>
+          </table>
+          <% end %>
+          <br>
+          <%= link_to "Add a Goal", new_profile_goal_path(@profile) %>
+        </p>
+      </div>
+    </div>
+
+    <div class="supplements_title">
+      <h1>Supplements</h1>
+    </div>
+    <div class="supplements">
+      <div class="supplements_content">
+        <p>
+
+          <% if @supplements.empty? %>
+          <small>You Have Not Added Any Supplements</small><br>
+          <% else %>
+          <div class="atable">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Supplement</th>
+                  <th colspan="2"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @supplements.each do |supplement| %>
+                <td><%= supplement.name %></td>
+                <td><%= link_to 'Edit', edit_supplement_path(supplement) %></td>
+                <td><%= link_to 'Destroy', supplement, method: :delete, data: { confirm: 'Are you sure?' } %></td><br>
+                <% end %>
+              </tbody>
+              <% end %>
+            </table>
+          </div>
+          <%= link_to "Add a Supplement", new_profile_supplement_path(@profile) %>
+        </p>
+      </div>
+    </div>
   </div>
-</div>
-
-<div class="supplements_title">
-  <h1>Supplements</h1>
-</div>
-<div class="supplements">
-  <div class="supplements_content">
-  <p>
-
-    <% if @supplements.empty? %>
-      <small>You Have Not Added Any Supplements</small><br>
-    <% else %>
-      <% @supplements.each do |supplement| %>
-        <strong>Supplement: </strong>
-        <%= supplement.name %>
-        <%= link_to 'Edit', edit_supplement_path(supplement) %>
-        <%= link_to 'Destroy', supplement, method: :delete, data: { confirm: 'Are you sure?' } %><br>
-      <% end %>
-    <% end %>
-    <br>
-    <%= link_to "Add a Supplement", new_profile_supplement_path(@profile) %>
-  </p>
-</div>
-</div>
-</div>
 </body>

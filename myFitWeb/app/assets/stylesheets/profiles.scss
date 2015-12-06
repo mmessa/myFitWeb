@@ -23,8 +23,13 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 }
 
 .edit_button {
-  padding-top: 3em;
+  padding-top: 70px;
 }
+
+.edit_button1 {
+  padding-top: 100px;
+}
+
 .supplements_title {
   margin-top: 20px;
   margin-bottom: 0;
@@ -116,6 +121,13 @@ table, caption, tbody, tfoot, thead, tr, th, td {
   font-size: 20px;
 }
 
+.goals_content p {
+  margin-top: 5px;
+}
+
+.supplements_content p {
+  margin-top: 5px;
+}
 .personal {
   float: left;
   height: 300px;

@@ -70,7 +70,7 @@ body {
           <% else %>
           <span class="info"><%= @profile.gym %></span><br>
           <% end %>
-          <div class="edit_button">
+          <div class="edit_button1">
             <small><%= link_to 'Edit', edit_profile_path(@profile) %></small>
           </div>
           <br>
@@ -148,9 +148,9 @@ body {
             </tbody>
           </table>
           <% end %>
-          <br>
+          </p>
           <%= link_to "Add a Goal", new_profile_goal_path(@profile) %>
-        </p>
+
       </div>
     </div>
 
@@ -164,7 +164,7 @@ body {
           <% if @supplements.empty? %>
           <small>You Have Not Added Any Supplements</small><br>
           <% else %>
-          <div class="atable">
+
             <table class="table">
               <thead>
                 <tr>
@@ -181,9 +181,8 @@ body {
               </tbody>
               <% end %>
             </table>
-          </div>
-          <%= link_to "Add a Supplement", new_profile_supplement_path(@profile) %>
         </p>
+        <%= link_to "Add a Supplement", new_profile_supplement_path(@profile) %>
       </div>
     </div>
   </div>

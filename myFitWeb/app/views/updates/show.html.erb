@@ -18,17 +18,23 @@
 </table>
 </div>
 <p>
+  <div class="picture_section">
   <% if !@update.pictures.empty? %>
     <% @update.pictures.each do |picture| %>
       <% if !picture.new_record? %>
-        <%= image_tag picture.name, size: "175x200", alt: picture.name %>
+        <div class="floating_box">
+          <div class="pic"><%= image_tag picture.name, size: "175x200", alt: picture.name %></div>
+        </div>
       <% end %>
     <% end %>
   <% end %>
+  </div>
 </p>
+<div class="new_pic">
 <h1 class="header"> Add a New Progress Picture </h1>
 <%= render :partial => 'pictures/form', :locals => { :update => @update } %>
 
 <%= link_to 'Edit', edit_update_path(@update) %> |
 <%= link_to 'Back', profile_updates_path(@profile) %>
+</div>
 </div>

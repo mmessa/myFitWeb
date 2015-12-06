@@ -36,7 +36,7 @@ class PicturesController < ApplicationController
     end
 
     if @picture.save
-      redirect_to profile_updates_url(@update.profile), notice: 'Image was successfully created.'
+      redirect_to update_path(@update), notice: 'Image was successfully created.'
     else
       render :new
     end

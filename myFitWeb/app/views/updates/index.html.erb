@@ -21,9 +21,9 @@
                 <td><%= update.created_at %></td>
                 <td><%= update.weight %></td>
                 <td><%= update.notes %></td>
-                <td><%= link_to 'Show', update %></td>
+                <td><%= link_to 'Add Picture', update %></td>
                 <td><%= link_to 'Edit', edit_update_path(update) %></td>
-                <td><%= link_to 'Destroy', update, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td><%= link_to 'Delete', update, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
         </tbody>

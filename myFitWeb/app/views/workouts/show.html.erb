@@ -1,11 +1,5 @@
 <style>
-#show {
-  display: none;
-}
 
-.indent {
-  margin-left: 40px;
-}
 </style>
 
 <script>
@@ -18,7 +12,7 @@ $(document).on("click","#addButton",function(){
 <p id="notice"><%= notice %></p>
 
 <p>
-  <h1><%= @workout.name %></h1>
+  <h1 class="header"><%= @workout.name %></h1>
 <div class="indent">
   <strong>Description:</strong>
   <%= @workout.description %>

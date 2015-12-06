@@ -1,9 +1,6 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @exercise.name %>
-</p>
+  <h1 class="header"><%= @exercise.name %></h1>
 
 <p>
   <strong>Sets:</strong>
@@ -23,3 +20,4 @@
 
 <%= link_to 'Edit', edit_exercise_path(@exercise) %> |
 <%= link_to 'Back', workout_path(@exercise.workout) %>
+</div>

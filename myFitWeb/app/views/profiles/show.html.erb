@@ -1,11 +1,4 @@
 <style>
-html, body, div, span, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-table, caption, tbody, tfoot, thead, tr, th, td {
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
 body {
   background-color: #F8F8F8;
 }
@@ -139,10 +132,12 @@ body {
             </thead>
             <tbody>
               <% @goals.each do |goal| %>
-              <td><%= goal.name %></td>
-              <td><%= goal.description %></td>
-              <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
-              <td><%= link_to 'Delete', goal, method: :delete, data: { confirm: 'Are you sure?' } %></td><br>
+              <tr>
+                <td><%= goal.name %></td>
+                <td><%= goal.description %></td>
+                <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
+                <td><%= link_to 'Delete', goal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
               <% end %>
             </tbody>
           </table>
@@ -172,9 +167,11 @@ body {
               </thead>
               <tbody>
                 <% @supplements.each do |supplement| %>
-                <td><%= supplement.name %></td>
-                <td><%= link_to 'Edit', edit_supplement_path(supplement) %></td>
-                <td><%= link_to 'Delete', supplement, method: :delete, data: { confirm: 'Are you sure?' } %></td><br>
+                <tr>
+                  <td><%= supplement.name %></td>
+                  <td><%= link_to 'Edit', edit_supplement_path(supplement) %></td>
+                  <td><%= link_to 'Delete', supplement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
                 <% end %>
               </tbody>
               <% end %>

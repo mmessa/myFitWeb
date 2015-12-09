@@ -30,8 +30,9 @@
       </table>
     <% end %>
   </p>
-
-  <%= link_to 'New Update', new_profile_update_path(@profile) %>
+  <div class="update_content">
+    <%= link_to 'New Update', new_profile_update_path(@profile) %>
+  </div>
   <br><br>
   <hr>
   <h1 id="workout_header"> Listing Your Workouts </h1>
@@ -42,5 +43,7 @@
         <%= render :partial => 'workouts/workouts', :locals => { :workouts => @workouts } %>
       <% end %>
     </p>
-  <%= link_to 'New Workout', new_profile_workout_path(@profile) %>
+    <div class="workout_content">
+      <%= link_to 'New Workout', new_profile_workout_path(@profile)%>
+    </div>
 </div>

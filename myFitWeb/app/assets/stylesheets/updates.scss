@@ -19,12 +19,15 @@
 
 .pic {
   border: 3px solid black;
-  height: 205px;
-  width: 180px;
+  height: 206px;
+  width: 181px;
+  float: left;
 }
 
 .new_pic {
-  float: left;
+  //margin-top:70px;
+  margin: 0;
+  //float: left;
   //background-color: blue;
 }
 

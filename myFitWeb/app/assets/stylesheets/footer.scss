@@ -52,6 +52,12 @@ h1 {
   padding: 0;
 }
 
+.logo a, .logo a:hover {
+  text-decoration: none;
+  background-color: transparent;
+  color: red;
+}
+
 .footer_nav_social {
   padding: 10px;
 }
